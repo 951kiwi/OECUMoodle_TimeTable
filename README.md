@@ -1,7 +1,7 @@
 # OECU Moodle2024 時間割作成 拡張機能
 
 <picture>
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="時間割/aaaa.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="時間割/aaaaa.png">
 </picture>
 
 大阪電気通信大学で使用するMoodle用時間割作成の拡張機能です
