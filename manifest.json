@@ -1,0 +1,33 @@
+{
+    "name": "OECU_Moodle自分の時間割",
+    "description": "moodleで使用可能な自分の時間割を作成するツールです(OECU Moodle2024でのみ動作)",
+    "manifest_version": 3,
+    "version": "1.3.1",
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "icons":{
+        "128": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://moodle2024.mc2.osakac.ac.jp/2024/*"
+            ],
+            "js": [
+                "content_script.js"
+            ],
+            "html": [
+                "timeTable.html"
+            ]
+        }
+    ],
+    "action": {
+        "default_title": "時間割アプリ",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    }
+}

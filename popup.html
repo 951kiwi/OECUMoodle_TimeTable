@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+
+<body>
+    <script src="content_script.js"></script>
+    <h1 style="text-align: center;">OECU Moodle用 時間割</h1>
+    <hr>
+    <div style="display: flex;
+    justify-content: center;
+    align-items: center;">編集モード : <div class="switchArea">
+            <input type="checkbox" id="switch1">
+            <label for="switch1"><span for="switch1"></span></label>
+            <div id="swImg"></div>
+        </div>
+    </div>
+    <hr>
+    <p style="text-align: center;">詳細設定</p>
+    <div style="display: flex;
+    justify-content: center;
+    align-items: center;">自分の時間割ボタンを追加 : <div class="switchArea">
+            <input type="checkbox" id="switch2">
+            <label for="switch2"><span for="switch2"></span></label>
+            <div id="swImg"></div>
+        </div>
+    </div>
+    <div style="display: flex;
+    justify-content: center;
+    align-items: center;">moodle起動時、最初に自分の時間割を表示 : <div class="switchArea">
+            <input type="checkbox" id="switch3">
+            <label for="switch3"><span for="switch3"></span></label>
+            <div id="swImg"></div>
+        </div>
+    </div>
+
+    
+    <p>全てリセットする</p>
+    <p></p>
+    <script src="popup.js" defer></script>
+</body>
+
+</html>
