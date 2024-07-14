@@ -34,7 +34,7 @@
 - Chrome最新
 
 
-### 951kiwi フィードバック
+### 951kiwi フィードバック(お問い合わせ)
 
 [X(Twitter)](https://chromewebstore.google.com/detail/oecumoodle%E8%87%AA%E5%88%86%E3%81%AE%E6%99%82%E9%96%93%E5%89%B2/gbibpggeehiiebolalbjmdfhoceaiaid?authuser=0&hl=ja)
 [E-Mail](951kiwi@gmail.com)
