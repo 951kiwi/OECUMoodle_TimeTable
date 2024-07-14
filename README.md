@@ -1,5 +1,11 @@
 # OECU Moodle2024 時間割作成 拡張機能
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+
 大阪電気通信大学で使用するMoodle用時間割作成の拡張機能です
 
 [Chrome Download Link](https://chromewebstore.google.com/detail/oecumoodle%E8%87%AA%E5%88%86%E3%81%AE%E6%99%82%E9%96%93%E5%89%B2/gbibpggeehiiebolalbjmdfhoceaiaid?authuser=0&hl=ja)
