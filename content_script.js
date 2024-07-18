@@ -8,11 +8,13 @@ function radio_changed(ele) {
         document.getElementById('g6-f').style.display = 'none';
         document.getElementById('g7-f').style.display = 'none';
         document.getElementById('g8-f').style.display = 'none';
-        document.getElementById('mytimeTable_table').style = '';
+        document.getElementById('mytimeTable_table').style.display = '';
+        document.getElementById('mytimeTable_label').style.display = '';
     }
 
     else {
         document.getElementById('mytimeTable_table').style.display = 'none ';
+        document.getElementById('mytimeTable_label').style.display = 'none';
     }
 }
 
@@ -210,7 +212,8 @@ function myTimeTable_create(element) {
     var tbody = document.createElement("tbody");// tbody要素を作成
     var table = document.createElement("table");
     var header = document.createElement("div");
-    table.setAttribute("id", "mytimeTable_table")
+    table.setAttribute("id", "mytimeTable_table");
+    header.setAttribute("id", "mytimeTable_label");
     table.setAttribute("class", "jmx");
     /////////////////////////////////////////////////
     //自分の時間割メニューをわかりやすくラベルを上につける
@@ -222,7 +225,7 @@ function myTimeTable_create(element) {
     header.style.textAlign = "Center"
     header.style.fontWeight = "bold";
     header.style.backgroundColor = timeColor;
-
+    
     // 6行7列のセルを作成してテーブルに追加
     for (var i = 0; i < 7; i++) {
         // 行を作成
@@ -299,6 +302,7 @@ function myTimeTable_create(element) {
     element.appendChild(table);
 
     table.style.display = "none";
+    header.style.display = "none";
 }
 function myTimeTable_set(element) {
     var myTimeTable = document.getElementById("mytimeTable_table");
