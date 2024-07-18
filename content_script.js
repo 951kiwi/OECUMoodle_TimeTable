@@ -209,26 +209,21 @@ function myTimeTable_create(element) {
     var day = ["月曜日", "火曜日", "水曜日", "木曜日", "金曜日"];
     var tbody = document.createElement("tbody");// tbody要素を作成
     var table = document.createElement("table");
+    var header = document.createElement("div");
     table.setAttribute("id", "mytimeTable_table")
     table.setAttribute("class", "jmx");
     /////////////////////////////////////////////////
     //自分の時間割メニューをわかりやすくラベルを上につける
     /////////////////////////////////////////////////
-    var cell = document.createElement("th");
-    row = document.createElement("tr");
-    cell.setAttribute("class", "jmx");
-    cell.style.backgroundColor = timeColor;
-    cell.colSpan = "6";
-    text = document.createTextNode("自分の時間割");
-    cell.appendChild(text);
-    row.appendChild(cell);
-    tbody.appendChild(row);
+    header.textContent = "自分の時間割";
+    header.style.padding = "5px 0";
+    header.style.border = "thick double";
+    header.style.borderBottom = "none";
+    header.style.textAlign = "Center"
+    header.style.fontWeight = "bold";
+    header.style.backgroundColor = timeColor;
 
-
-
-
-
-    // 5行5列のセルを作成してテーブルに追加
+    // 6行7列のセルを作成してテーブルに追加
     for (var i = 0; i < 7; i++) {
         // 行を作成
         var row = document.createElement("tr");
@@ -242,6 +237,7 @@ function myTimeTable_create(element) {
                 cell.setAttribute("class", "jmxt");
                 cell.style.backgroundColor = timeColor;
                 if (i !== 0) {
+
                     var div = document.createElement("div");
                     div.setAttribute("class", "vertical_text");
                     div.textContent = (i + "限目");
@@ -298,6 +294,8 @@ function myTimeTable_create(element) {
     // tbodyをテーブルに追加
     table.appendChild(tbody);
     // テーブルをbodyに追加
+    element.appendChild(document.createElement("br"));
+    element.appendChild(header);
     element.appendChild(table);
 
     table.style.display = "none";
@@ -391,36 +389,21 @@ function generateId(element) { //講義保存時、取り出し時用の固有ID
 }
 function addCoordinatesToTable() { //すべてのtableを取得してx,y座標を設定
     var tables = document.getElementsByTagName("table");
-
     for (var i = 0; i < tables.length; i++) {
         var table = tables[i];
         //console.log(table);
-        if (table.id == "mytimeTable_table") {
-            var rows = table.getElementsByTagName("tr");
 
-            for (var y = 0; y < rows.length; y++) {
-                var cells = rows[y].querySelectorAll("td, th");
+        var rows = table.getElementsByTagName("tr");
 
-                for (var x = 0; x < cells.length; x++) {
-                    var cell = cells[x];
-                    cell.classList.add("x=" + x, "y=" + (y-1)); // クラスに"x=?"と"y=?"を追加
-                }
-            }
-        }
-        else {
-            var rows = table.getElementsByTagName("tr");
+        for (var y = 0; y < rows.length; y++) {
+            var cells = rows[y].querySelectorAll("td, th");
 
-            for (var y = 0; y < rows.length; y++) {
-                var cells = rows[y].querySelectorAll("td, th");
-
-                for (var x = 0; x < cells.length; x++) {
-                    var cell = cells[x];
-                    cell.classList.add("x=" + x, "y=" + y); // クラスに"x=?"と"y=?"を追加
-                }
+            for (var x = 0; x < cells.length; x++) {
+                var cell = cells[x];
+                cell.classList.add("x=" + x, "y=" + y); // クラスに"x=?"と"y=?"を追加
             }
         }
     }
-
 }
 
 function read_data(key) {
@@ -481,21 +464,21 @@ function storage_timetable_background() {//ローカルからデータを読み�
         }
     }));
 }
-function console_styler(num,string){
+function console_styler(num, string) {
     let styles = '';
-    if(parseInt(num) === 1){
+    if (parseInt(num) === 1) {
         const spacing = '10px';
         styles = `padding: ${spacing}; background-color: white; color: red; font-style: italic; border: 1px solid black; font-size: 2em;`;
     }
-    else if(parseInt(num) === 2){
+    else if (parseInt(num) === 2) {
         const spacing = '10px';
         styles = `padding: ${spacing};  color: green; font-style: italic; font-size: 2em;`;
     }
-    else if(parseInt(num) === 3){
+    else if (parseInt(num) === 3) {
         const spacing = '3px';
         styles = `padding: ${spacing};  color: green; font-style: italic; font-size: 1em;font-weight: bold;`;
     }
-    else{
+    else {
         console.log("console_styler選択失敗");
     }
     console.log('%c' + string, styles);
@@ -578,6 +561,6 @@ window.onload = async function () {
         console.error('Error reading setting2:', error);
     }
 
-    console_styler(2,"時間割作成拡張機能for OECU_Moodle2024");
-    console_styler(3,"created by 951kiwi");
+    console_styler(2, "時間割作成拡張機能for OECU_Moodle2024");
+    console_styler(3, "created by 951kiwi");
 }
