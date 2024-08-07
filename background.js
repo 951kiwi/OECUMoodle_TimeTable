@@ -4,6 +4,7 @@ chrome.runtime.onInstalled.addListener(() => {
   console.log("nowInstall");
   storage_set("setting2",true);
   storage_set("setting3",true);
+  storage_set("setting4",true); //前期false 後期true
 })
 
 
