@@ -21,9 +21,11 @@ function radio_changed() {
         document.getElementById("mytimetable_btn_label_1").style.color = '#555e64';
         document.getElementById("mytimeTable_br_0").style.display = "";
         document.getElementById("mytimeTable_br_1").style.display = "none";
+        document.getElementById("mytimeTable_table_intensive").style.display = "";
 
     }
     else if (document.getElementById('mytimetable_btn_1').checked) {
+        console.log("後期")
         document.getElementById('g1-f').style.display = 'none';
         document.getElementById('g2-f').style.display = 'none';
         document.getElementById('g3-f').style.display = 'none';
@@ -42,11 +44,12 @@ function radio_changed() {
         document.getElementById("mytimetable_btn_label_0").style.color = '#555e64';
         document.getElementById("mytimeTable_br_0").style.display = "none";
         document.getElementById("mytimeTable_br_1").style.display = "";
+        document.getElementById("mytimeTable_table_intensive").style.display = "";
 
     }
 
     else {
-        console.log("a")
+        console.log("その他")
         document.getElementById('mytimeTable_table_0').style.display = 'none';
         document.getElementById('mytimeTable_label_0').style.display = 'none';
         document.getElementById('mytimeTable_table_1').style.display = 'none';
@@ -57,6 +60,7 @@ function radio_changed() {
         document.getElementById("mytimetable_btn_label_1").style.color = '#555e64';
         document.getElementById("mytimeTable_br_0").style.display = "";
         document.getElementById("mytimeTable_br_1").style.display = "";
+        document.getElementById("mytimeTable_table_intensive").style.display = "none";
     }
 }
 
@@ -218,7 +222,7 @@ function choiceBox() {
                         div.style.backgroundColor = "lightsteelblue";
                         button.textContent = "✕"
                         storage_set(generateId(element), div.querySelector('.main_font').getAttribute('period'));
-                        console.log(button.parentElement.parentElement.parentElement.parentElement.parentElement.id)
+                        //console.log(button.parentElement.parentElement.parentElement.parentElement.parentElement.id)
 
                     }
                     else {
@@ -447,8 +451,6 @@ function myTimeTable_intensive_create(element) {
 function myTimeTable_set(element, num) {
 
     var myTimeTable = document.getElementById("mytimeTable_table" + "_" + String(num));
-    console.log(element)
-    console.log(element + num)
     var cell_ = element
     // 親要素が<td>または<th>になるまで親要素をたどる
     while (cell_ && cell_.tagName !== 'TD' && cell_.tagName !== 'TH') {
@@ -525,7 +527,6 @@ function generateId(element) { //講義の用の固有IDを生成(子)
             const id = href.substring('/2024/course/view.php?id='.length);
             // idが数字であるかチェックします
             if (!isNaN(id)) {
-                console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
                 return id; // 数字のidを返します
             }
         }
@@ -652,7 +653,7 @@ function storage_timetable_background() {//ローカルからデータを読み�
                         element.parentNode.insertBefore(element, element.parentNode.firstChild);
                         div.appendChild(nextElement);
                         if (data[value] === "0" || data[value] === "1") {
-                            console.log("成功")
+                            //console.log("成功")
                             myTimeTable_set(div, data[value]);
                         }
                         else {
@@ -773,6 +774,9 @@ window.onload = async function () {
             }
 
         }
+        else{
+            document.getElementById("mytimeTable_table_intensive").style.display = "none";
+        }
     } catch (error) {
         console.error('Error reading setting2:', error);
     }
@@ -783,7 +787,7 @@ window.onload = async function () {
         if (JSON.parse(setting3Value)) {//時間割ボタンの追加
             try {
                 const setting4Value = await read_data("setting4");
-                console.log(JSON.parse(setting4Value))
+                //console.log(JSON.parse(setting4Value))
                 if (JSON.parse(setting4Value) === true) {
                     document.getElementById("mytimetable_btn_1").click();
                     console.log("前期")
@@ -797,6 +801,9 @@ window.onload = async function () {
             } catch (error) {
                 console.error('Error reading setting4:', error);
             }
+        }
+        else{
+            document.getElementById("mytimeTable_table_intensive").style.display = "none"
         }
     } catch (error) {
         console.error('Error reading setting3:', error);
